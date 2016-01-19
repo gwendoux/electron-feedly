@@ -1,0 +1,17 @@
+{
+  "name": "electron-feedly",
+  "version": "1.0.0",
+  "description": "display feedly site in an electron shell",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "electron main.js",
+    "package": "electron-packager . \"$npm_package_name\" --overwrite --platform=darwin --arch=x64 --out='/Applications' --icon='./resources/feedly-e.icns'"
+  },
+  "author": "gwendoux",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-packager": "^5.2.1",
+    "electron-prebuilt": "^0.36.4"
+  }
+}
