@@ -1,5 +1,11 @@
 'use strict';
 
+/*
+** TODO
+** # add icon badge to display unread messages
+** # open new link in default browser
+*/
+
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
