@@ -3,12 +3,14 @@
 /*
 ** TODO
 ** # add icon badge to display unread messages
+http://electron.atom.io/docs/v0.30.0/api/app/#app-dock-setbadge-text
 ** # open new link in default browser
 */
 
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
+const shell = require('electron').shell;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -25,15 +27,27 @@ app.on('window-all-closed', function() {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
+app.dock.setBadge('■');
+
 app.on('ready', function() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 1400, height: 1200});
 
   // and load the index.html of the app.
   mainWindow.loadURL('http://feedly.com');
 
+  // let unread = document.getElementById("latesttab_header")[0];
+
+  // console.log(unread);
+
+  app.dock.setBadge('42');
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
+
+  mainWindow.webContents.on('new-window', function(e, url) {
+      e.preventDefault();
+      shell.openExternal(url);
+  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
