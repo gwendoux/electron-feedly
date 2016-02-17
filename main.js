@@ -8,6 +8,8 @@ http://electron.atom.io/docs/v0.30.0/api/app/#app-dock-setbadge-text
 */
 
 const electron = require('electron');
+const logger = require('tracer').colorConsole();
+
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
 const shell = require('electron').shell;
@@ -42,11 +44,15 @@ app.on('ready', function() {
 
   app.dock.setBadge('42');
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.webContents.on('new-window', function(e, url) {
-      e.preventDefault();
-      shell.openExternal(url);
+      if(url.indexOf('feedly.com') > -1) {
+           logger.debug(url);
+      } else {
+          e.preventDefault();
+          shell.openExternal(url);
+      }
   });
 
   // Emitted when the window is closed.
