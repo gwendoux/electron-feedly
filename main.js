@@ -34,7 +34,7 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({width: 1400, height: 1200});
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://feedly.com');
+  mainWindow.loadURL('https://feedly.com');
 
   // let unread = document.getElementById("latesttab_header")[0];
 
