@@ -42,7 +42,7 @@ app.on('ready', function() {
 
   // console.log(unread);
 
-  app.dock.setBadge('42');
+  // app.dock.setBadge('42');
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 
@@ -60,6 +60,8 @@ app.on('ready', function() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
+    // remove badge
+    app.dock.setBadge('');
     mainWindow = null;
   });
 });
