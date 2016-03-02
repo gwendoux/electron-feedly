@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "display feedly site in an electron shell",
   "main": "main.js",
+  "repository": "git@github.com:gwendoux/electron-feedly.git",
   "scripts": {
     "test": "npm test",
     "start": "electron main.js",
